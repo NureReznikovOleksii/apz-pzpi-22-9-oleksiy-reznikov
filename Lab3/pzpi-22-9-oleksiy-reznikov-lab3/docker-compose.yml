@@ -1,0 +1,45 @@
+﻿services:
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: electric-monitor:latest
+    container_name: electric-monitor-app
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      # Переопределяем только MQTT для локального брокера
+      - MQTT_BROKER_URL=mqtt://mosquitto:1883
+    depends_on:
+      - mosquitto
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+      - /app/node_modules
+    restart: unless-stopped
+    networks:
+      - electric-monitor
+
+  # Убираем локальный MongoDB - используем внешний из .env
+  
+  mosquitto:
+    image: eclipse-mosquitto:2.0
+    container_name: electric-monitor-mqtt
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - type: bind
+        source: ./mosquitto.conf
+        target: /mosquitto/config/mosquitto.conf
+        read_only: true
+    restart: unless-stopped
+    networks:
+      - electric-monitor
+
+networks:
+  electric-monitor:
+    driver: bridge
