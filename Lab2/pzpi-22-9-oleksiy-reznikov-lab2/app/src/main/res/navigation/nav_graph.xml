@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <!-- Authentication Flow -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.electricmonitor.mobile.ui.fragments.LoginFragment"
+        android:label="@string/sign_in"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_loginFragment_to_devicesFragment"
+            app:destination="@id/devicesFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out" />
+
+        <action
+            android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment"
+            app:enterAnim="@anim/slide_in_up"
+            app:exitAnim="@anim/slide_out_down"
+            app:popEnterAnim="@anim/slide_in_down"
+            app:popExitAnim="@anim/slide_out_up" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.electricmonitor.mobile.ui.fragments.RegisterFragment"
+        android:label="@string/create_account"
+        tools:layout="@layout/fragment_register">
+
+        <action
+            android:id="@+id/action_registerFragment_to_devicesFragment"
+            app:destination="@id/devicesFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.electricmonitor.mobile.ui.fragments.ForgotPasswordFragment"
+        android:label="@string/forgot_password"
+        tools:layout="@layout/fragment_forgot_password" />
+
+    <!-- Main App Flow -->
+    <fragment
+        android:id="@+id/devicesFragment"
+        android:name="com.electricmonitor.mobile.ui.fragments.DevicesFragment"
+        android:label="@string/my_devices"
+        tools:layout="@layout/fragment_devices">
+
+        <action
+            android:id="@+id/action_devicesFragment_to_deviceDetailFragment"
+            app:destination="@id/deviceDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_devicesFragment_to_addDeviceFragment"
+            app:destination="@id/addDeviceFragment"
+            app:enterAnim="@anim/slide_in_up"
+            app:exitAnim="@anim/slide_out_down"
+            app:popEnterAnim="@anim/slide_in_down"
+            app:popExitAnim="@anim/slide_out_up" />
+
+        <action
+            android:id="@+id/action_devicesFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_devicesFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/deviceDetailFragment"
+        android:name="com.electricmonitor.mobile.ui.fragments.DeviceDetailFragment"
+        android:label="Device Details"
+        tools:layout="@layout/fragment_device_detail">
+
+        <argument
+            android:name="deviceId"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_deviceDetailFragment_to_deviceSettingsFragment"
+            app:destination="@id/deviceSettingsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_deviceDetailFragment_to_alertsFragment"
+            app:destination="@id/alertsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/addDeviceFragment"
+        android:name="com.electricmonitor.mobile.ui.fragments.AddDeviceFragment"
+        android:label="@string/add_device"
+        tools:layout="@layout/fragment_add_device" />
+
+    <fragment
+        android:id="@+id/deviceSettingsFragment"
+        android:name="com.electricmonitor.mobile.ui.fragments.DeviceSettingsFragment"
+        android:label="@string/device_settings"
+        tools:layout="@layout/fragment_device_settings">
+
+        <argument
+            android:name="deviceId"
+            app:argType="string" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/alertsFragment"
+        android:name="com.electricmonitor.mobile.ui.fragments.AlertsFragment"
+        android:label="@string/alerts_title"
+        tools:layout="@layout/fragment_alerts">
+
+        <argument
+            android:name="deviceId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+
+        <action
+            android:id="@+id/action_alertsFragment_to_alertDetailFragment"
+            app:destination="@id/alertDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/alertDetailFragment"
+        android:name="com.electricmonitor.mobile.ui.fragments.AlertDetailFragment"
+        android:label="Alert Details"
+        tools:layout="@layout/fragment_alert_detail">
+
+        <argument
+            android:name="alertId"
+            app:argType="string" />
+
+    </fragment>
+
+    <!-- Profile and Settings -->
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.electricmonitor.mobile.ui.fragments.ProfileFragment"
+        android:label="@string/profile_title"
+        tools:layout="@layout/fragment_profile">
+
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_profileFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_profileFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.electricmonitor.mobile.ui.fragments.EditProfileFragment"
+        android:label="@string/edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
+
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.electricmonitor.mobile.ui.fragments.ChangePasswordFragment"
+        android:label="@string/change_password"
+        tools:layout="@layout/fragment_change_password" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.electricmonitor.mobile.ui.fragments.SettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_settings" />
+
+</navigation>

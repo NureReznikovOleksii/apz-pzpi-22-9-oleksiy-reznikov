@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme -->
+    <style name="Theme.ElectricMonitor" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/secondary_color</item>
+
+        <!-- Background colors -->
+        <item name="android:colorBackground">@color/background_color</item>
+        <item name="colorSurface">@color/surface_color</item>
+        <item name="colorOnSurface">@color/text_on_surface</item>
+
+        <!-- Error colors -->
+        <item name="colorError">@color/error_color</item>
+        <item name="colorOnError">@color/text_on_primary</item>
+
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@color/primary_color</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+
+        <!-- Navigation bar -->
+        <item name="android:navigationBarColor">@color/background_color</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">false</item>
+
+        <!-- Text colors -->
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+
+        <!-- Popup Menu Styles -->
+        <item name="popupMenuStyle">@style/PopupMenuStyle</item>
+        <item name="android:popupMenuStyle">@style/PopupMenuStyle</item>
+        <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
+        <item name="android:actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
+
+        <!-- Window properties -->
+        <item name="android:windowBackground">@color/background_color</item>
+        <item name="android:enforceNavigationBarContrast" tools:targetApi="q">false</item>
+        <item name="android:enforceStatusBarContrast" tools:targetApi="q">false</item>
+    </style>
+
+    <!-- Popup Menu Style -->
+    <style name="PopupMenuStyle" parent="Widget.MaterialComponents.PopupMenu">
+        <item name="android:popupBackground">@drawable/popup_menu_background</item>
+        <item name="android:textColorPrimary">@android:color/black</item>
+        <item name="colorOnSurface">@android:color/black</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Overflow Menu Style -->
+    <style name="OverflowMenuStyle" parent="Widget.MaterialComponents.PopupMenu.Overflow">
+        <item name="android:popupBackground">@drawable/popup_menu_background</item>
+        <item name="android:textColorPrimary">@android:color/black</item>
+        <item name="colorOnSurface">@android:color/black</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:dropDownSelector">@drawable/menu_item_selector</item>
+    </style>
+
+
+    <!-- Splash screen theme -->
+    <style name="Theme.ElectricMonitor.Splash" parent="Theme.ElectricMonitor">
+        <item name="android:windowBackground">@color/background_color</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
+
+    <!-- Base styles that are referenced in code -->
+    <style name="ProgressBar" parent="@android:style/Widget.ProgressBar">
+        <item name="android:indeterminateTint">@color/primary_color</item>
+    </style>
+
+    <style name="Text" parent="@android:style/TextAppearance">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <!-- Button Styles -->
+    <style name="Button.Primary" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/button_primary</item>
+        <item name="android:textColor">@color/text_on_primary</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+
+    <style name="Button.Secondary" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@color/primary_color</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="strokeColor">@color/primary_color</item>
+        <item name="cornerRadius">12dp</item>
+    </style>
+
+    <style name="Button.Danger" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/button_danger</item>
+        <item name="android:textColor">@color/text_on_primary</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+
+    <!-- Text Input Styles -->
+    <style name="TextInputLayout.Primary" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/input_background</item>
+        <item name="boxStrokeColor">@color/input_border</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="hintTextColor">@color/text_secondary</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+    </style>
+
+    <!-- Card Styles -->
+    <style name="Card.Primary" parent="CardView">
+        <item name="cardBackgroundColor">@color/surface_color</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+    <style name="Card.Flat" parent="CardView">
+        <item name="cardBackgroundColor">@color/surface_color</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+    <!-- Toolbar Styles -->
+    <style name="Toolbar.Primary" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:background">@color/primary_color</item>
+        <item name="titleTextColor">@color/text_on_primary</item>
+        <item name="subtitleTextColor">@color/text_on_primary</item>
+    </style>
+
+    <!-- Text Styles -->
+    <style name="Text.Headline1">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="Text.Headline2">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="Text.Body1">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="Text.Body2">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="Text.Caption">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <!-- Progress Bar Styles -->
+    <style name="ProgressBar.Primary">
+        <item name="android:indeterminateTint">@color/primary_color</item>
+    </style>
+
+    <style name="ProgressBar.Horizontal">
+        <item name="android:progressTint">@color/primary_color</item>
+        <item name="android:progressBackgroundTint">@color/progress_background</item>
+    </style>
+</resources>
