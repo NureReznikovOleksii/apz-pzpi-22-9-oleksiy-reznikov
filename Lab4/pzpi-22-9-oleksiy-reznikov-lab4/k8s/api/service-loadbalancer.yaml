@@ -1,0 +1,16 @@
+﻿apiVersion: v1
+kind: Service
+metadata:
+  name: electric-monitor-api-service
+  namespace: electric-monitor
+  labels:
+    app: electric-monitor-api
+spec:
+  selector:
+    app: electric-monitor-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+      nodePort: 30080
+  type: LoadBalancer
