@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/surface_color"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Device Status Icon -->
+        <ImageView
+            android:id="@+id/imageViewStatus"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_status_online"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:tint="@color/status_online" />
+
+        <!-- Device Name -->
+        <TextView
+            android:id="@+id/textViewDeviceName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/imageViewOwnership"
+            app:layout_constraintStart_toEndOf="@id/imageViewStatus"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Living Room Monitor" />
+
+        <!-- Ownership Icon -->
+        <ImageView
+            android:id="@+id/imageViewOwnership"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_owner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/primary_color" />
+
+        <!-- Device ID -->
+        <TextView
+            android:id="@+id/textViewDeviceId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@id/textViewOwnership"
+            app:layout_constraintStart_toEndOf="@id/imageViewStatus"
+            app:layout_constraintTop_toBottomOf="@id/textViewDeviceName"
+            tools:text="20241201_64f5a1b8c9e2d3f4g5h6i7j8" />
+
+        <!-- Ownership Text -->
+        <TextView
+            android:id="@+id/textViewOwnership"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageViewOwnership"
+            tools:text="Owner" />
+
+        <!-- Status Text -->
+        <TextView
+            android:id="@+id/textViewStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewDeviceId"
+            tools:text="Online"
+            tools:textColor="@color/status_online" />
+
+        <!-- Location -->
+        <TextView
+            android:id="@+id/textViewLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/textViewStatus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/textViewStatus"
+            tools:text="Kyiv, Ukraine" />
+
+        <!-- Power Consumption Container -->
+        <LinearLayout
+            android:id="@+id/powerContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            android:padding="12dp"
+            app:layout_constraintTop_toBottomOf="@id/textViewStatus">
+
+            <!-- Power Consumption Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Current Power"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/textViewPowerConsumption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="250W" />
+
+                <TextView
+                    android:id="@+id/textViewPowerLimit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    tools:text="/500W" />
+
+            </LinearLayout>
+
+            <!-- Power Progress Bar -->
+            <ProgressBar
+                android:id="@+id/progressBarPower"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:max="500"
+                android:progress="250"
+                android:progressTint="@color/primary_color"
+                android:progressBackgroundTint="@color/progress_background" />
+
+            <!-- Room Status -->
+            <TextView
+                android:id="@+id/textViewRoomStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                tools:text="Room 1: ✓  Room 2: ✓" />
+
+        </LinearLayout>
+
+        <!-- Last Seen -->
+        <TextView
+            android:id="@+id/textViewLastSeen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:textColor="@color/text_secondary"
+            android:textSize="11sp"
+            app:layout_constraintTop_toBottomOf="@id/powerContainer"
+            tools:text="Last seen: Dec 01, 14:30" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
